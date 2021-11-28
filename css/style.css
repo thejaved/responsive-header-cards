@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "PT Sans", sans-serif;
+}
+:root {
+  --white-blue: #eaeef0;
+  --black-color: rgb(0, 0, 0);
+  --color-gradient: #42abff, #ff4f8b, #ffeb3b;
+  --box-shadow: -8px 0px 16px rgba(0 0 0/10%);
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--white-blue);
+}
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 100;
+}
+.nav {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  background-color: var(--white-blue);
+  box-shadow: var(--box-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.nav span {
+  position: relative;
+  width: 90%;
+  height: 90%;
+  inset: 0;
+  box-shadow: inset 8px 8px 16px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.nav span .grident_i {
+  position: absolute;
+  inset: 0;
+  animation: animate 0.5s linear infinite;
+}
+@keyframes animate {
+  0% {
+    background: linear-gradient(0deg, var(--color-gradient));
+  }
+  20% {
+    background: linear-gradient(90deg, var(--color-gradient));
+  }
+  40% {
+    background: linear-gradient(180deg, var(--color-gradient));
+  }
+  65% {
+    background: linear-gradient(260deg, var(--color-gradient));
+  }
+  80% {
+    background: linear-gradient(360deg, var(--color-gradient));
+  }
+  100% {
+    background: linear-gradient(0deg, var(--color-gradient));
+  }
+}
+.container {
+  position: absolute;
+  inset: 20px;
+  background-color: var(--white-blue);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.container ul li {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 10px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.container ul li a {
+  color: var(--black-color);
+  transition: 0.5s;
+}
+.container ul li.active,
+.container ul li:hover {
+  border-radius: 5px;
+  background-color: var(--black-color);
+}
+.container ul li.active a,
+.container ul li:hover a {
+  color: #eaeef0;
+}
+.menu_toggle {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  left: -10%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  background-color: var(--white-blue);
+  box-shadow: var(--box-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu_toggle i {
+  font-size: 30px;
+  cursor: pointer;
+}
+.hero_section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+.hero_section .conatiner_section_head {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+}
+.inner_container {
+  position: absolute;
+  inset: 20px;
+  background: linear-gradient(36deg, var(--color-gradient));
+  box-shadow: var(--box-shadow);
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+}
+.inner_container h1 {
+  color: var(--white-blue);
+}
+.cards_container {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  background-color: var(--white-blue);
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+  margin: 20px;
+  overflow: hidden;
+}
+.cards_container span {
+  position: absolute;
+  inset: 0px;
+  bottom: 50%;
+  background: linear-gradient(36deg, var(--color-gradient));
+  padding: 10px;
+  overflow: hidden;
+}
+.cards_container span img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+}
+.cards_container .details_container {
+  position: absolute;
+  inset: 10px;
+  top: 50%;
+  overflow: hidden;
+  padding: 10px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+.details_container a {
+  padding: 10px 20px;
+  background: linear-gradient(36deg, var(--color-gradient));
+  color: var(--white-blue);
+  transition: 0.5s;
+  border-radius: 20px;
+}
+.details_container a:hover {
+  background: transparent;
+  color: var(--black-color);
+  box-shadow: var(--box-shadow);
+}
+@media (max-width: 800px) {
+  .menu_list {
+    position: fixed;
+    top: 0;
+    right: -50%;
+    width: 50%;
+    height: 100vh;
+    background-color: var(--white-blue);
+    box-shadow: var(--box-shadow);
+    transition: 0.5s;
+  }
+  .menu_list.active {
+    right: 0;
+  }
+  .container ul li {
+    display: block;
+    margin: 10px;
+  }
+}
+@media (max-width: 1000px) {
+  .hero_section .conatiner_section_head {
+    display: none;
+  }
+}
+.footer {
+  width: 100%;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(36deg, var(--color-gradient));
+}
+.footer .copyright_content {
+  color: var(--white-blue);
+}
